@@ -1,45 +1,20 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/Abuout";
+import Detail from "./routes/Detail";
+import Navigation from "./components/Navigation";
 
-function MyImg({ name, picture, rating }) {
-  return <div>
-    <h1>I like {name}</h1>
-    <h4>{rating}/5.0</h4>
-    <img src={picture} alt={name} />
-  </div>
-}
 
-MyImg.propTypes = {
-  name: PropTypes.string.isRequired,
-  picture: PropTypes.string,
-  rating: PropTypes.number
-};
-const imgMap = [
-  {
-    id: 1,
-    name: "freeImage1",
-    image: "https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60",
-    rating: 5
-  },
-  {
-    id: 2,
-    name: "freeImage2",
-    image: "https://cdn.mos.cms.futurecdn.net/LHcG66TebAwFGeaXRMRh7n.jpg",
-    rating: 4.9
-  },
-]
-
-// function rederImage(item) {
-//   return <MyImg name={item.name} picture={item.image} />
-// }
-
+//BrowserRouter <-> HashRouter
 function App() {
   return (
-    <div className="App">
-      {imgMap.map(imgItem => (
-        <MyImg key={imgItem.id} name={imgItem.name} picture={imgItem.image} rating={imgItem.rating} />
-      ))}
-    </div>
+    <BrowserRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/movie/:id" component={Detail} />
+    </BrowserRouter>
   );
 }
 

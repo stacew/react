@@ -1,0 +1,7 @@
+.movie {
+    display: flex;
+    font-size: 20px;
+}
+.movieImg{
+    padding: 20px;
+}

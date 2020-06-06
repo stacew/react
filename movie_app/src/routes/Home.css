@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(204, 197, 197);
+  
+}
+
+.container{
+
+    padding: 20px;
+    display: flex;
+}
